@@ -1,0 +1,649 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f8f6f2; /* Fundo bege claro elegante */
+  color: #f8f6f2;
+  font-size: 16px;
+  animation: fadeInPage 1s ease-out; /* Animação de fade-in na página */
+}
+
+@keyframes fadeInPage {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* LOGO */
+.logopoço{
+  height: 150px;
+  object-fit: contain;
+}
+.logo {
+  height: 150px;
+  object-fit: contain;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 1px;
+  background: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: #000000; /* Rosé sofisticado */
+  font-weight: bold;
+}
+
+/* =========================================
+   BOTÃO INSTALAR — ESTILO WHATSAPP FLUTUANTE
+   ========================================= */
+
+#btnInstalar {
+    position: fixed;
+    right: 22px;
+    bottom: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    height: 58px;
+    padding: 0 20px 0 14px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #0d6efd,
+        #0945b6
+    );
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(9, 69, 182, 0.35),
+        0 0 0 0 rgba(13, 110, 253, 0.45);
+
+    z-index: 9998;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: instalar-pulso 2.5s infinite;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ÍCONE
+   ========================================= */
+
+.instalar-icone {
+    width: 38px;
+    height: 38px;
+    
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border-radius: 50%;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* =========================================
+   TEXTO
+   ========================================= */
+
+.instalar-texto {
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   EFEITO BRILHO
+   ========================================= */
+
+#btnInstalar::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+#btnInstalar:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 14px 35px rgba(9, 69, 182, 0.45);
+
+    animation: none;
+}
+
+#btnInstalar:hover::before {
+    left: 130%;
+}
+
+#btnInstalar:hover .instalar-icone {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   CLIQUE
+   ========================================= */
+
+#btnInstalar:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   FOCO
+   ========================================= */
+
+#btnInstalar:focus-visible {
+    outline: none;
+
+    box-shadow:
+        0 0 0 4px rgba(13, 110, 253, 0.20),
+        0 10px 30px rgba(9, 69, 182, 0.40);
+}
+
+
+/* =========================================
+   ANIMAÇÃO DE PULSO
+   ========================================= */
+
+@keyframes instalar-pulso {
+
+    0% {
+        box-shadow:
+            0 8px 25px rgba(9, 69, 182, 0.35),
+            0 0 0 0 rgba(13, 110, 253, 0.45);
+    }
+
+    70% {
+        box-shadow:
+            0 8px 25px rgba(9, 69, 182, 0.35),
+            0 0 0 12px rgba(13, 110, 253, 0);
+    }
+
+    100% {
+        box-shadow:
+            0 8px 25px rgba(9, 69, 182, 0.35),
+            0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    #btnInstalar {
+        right: 16px;
+        bottom: 82px;
+
+        width: 56px;
+        height: 56px;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+    .instalar-icone {
+        width: 42px;
+        height: 42px;
+
+        background: transparent;
+
+        font-size: 25px;
+    }
+
+    .instalar-texto {
+        display: none;
+    }
+}
+
+/* =========================================
+   BOTÕES DO HEADER
+   ========================================= */
+
+.header button {
+    position: relative;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(13, 110, 253, 0.25);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #2a61c7;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all 0.25s ease;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.header button:hover {
+    background: #0945b6;
+    color: #ffffff;
+
+    border-color: #0945b6;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(9, 69, 182, 0.25);
+}
+
+.header button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* PRODUTOS */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 80px;
+  padding: 100px 100px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);  /* Aumento da card */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);  /* Sombra mais forte */
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card h3 {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.card p {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #000000; /* Rosé */
+}
+
+.card a {
+  display: block;
+  margin: 10px;
+  padding: 12px;
+  background: #000000;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.card a:hover {
+  background: #000000;
+}
+
+/* LINK BLOQUEADO */
+.card a.bloqueado {
+  background: gray;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-box input {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.modal-box button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.modal-box button:hover {
+  background: #000000;
+}
+
+#msg {
+  font-size: 14px;
+  margin-top: 10px;
+  color: red;
+}
+
+/* USUARIO INFO */
+.usuario-info strong {
+  color: #000000;
+}
+
+/* LOADING */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #eee;
+  border-top: 6px solid #000000;
+  border-radius: 50%;
+  animation: girar 1s linear infinite, fadeIn 0.5s ease-in-out;
+  margin-bottom: 20px;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px;
+  }
+
+  .produtos {
+    padding: 15px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  color: #888;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-nav a:hover {
+  color: #000000;
+}
+/* =========================================
+   WHATSAPP FLUTUANTE
+   ========================================= */
+
+.whatsapp-flutuante {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 58px;
+    padding: 0 20px 0 14px;
+
+    background: linear-gradient(
+        135deg,
+        #25d366,
+        #128c7e
+    );
+
+    color: #fff;
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 25px rgba(18, 140, 126, 0.35),
+        0 0 0 0 rgba(37, 211, 102, 0.45);
+
+    z-index: 9999;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        width 0.3s ease;
+
+    animation: whatsapp-pulso 2.5s infinite;
+}
+
+
+/* Ícone */
+
+.whatsapp-icone {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border-radius: 50%;
+
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+/* Texto */
+
+.whatsapp-texto {
+    white-space: nowrap;
+}
+
+
+/* Hover */
+
+.whatsapp-flutuante:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 14px 35px rgba(18, 140, 126, 0.45);
+
+    animation: none;
+}
+
+
+/* Clique */
+
+.whatsapp-flutuante:active {
+    transform: scale(0.96);
+}
+
+
+/* Animação de pulso */
+
+@keyframes whatsapp-pulso {
+
+    0% {
+        box-shadow:
+            0 8px 25px rgba(18, 140, 126, 0.35),
+            0 0 0 0 rgba(37, 211, 102, 0.45);
+    }
+
+    70% {
+        box-shadow:
+            0 8px 25px rgba(18, 140, 126, 0.35),
+            0 0 0 12px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow:
+            0 8px 25px rgba(18, 140, 126, 0.35),
+            0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .whatsapp-flutuante {
+        right: 16px;
+        bottom: 16px;
+
+        width: 56px;
+        height: 56px;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+    .whatsapp-icone {
+        width: 42px;
+        height: 42px;
+
+        background: transparent;
+
+        font-size: 25px;
+    }
+
+    .whatsapp-texto {
+        display: none;
+    }
+}
